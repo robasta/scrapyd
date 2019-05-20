@@ -62,6 +62,7 @@ RUN set -xe \
     && rm -rf /var/lib/apt/lists/*
 
 COPY ./scrapyd.conf /etc/scrapyd/
+COPY ./scrapy.cfg /etc/scrapyd/
 VOLUME /etc/scrapyd/ /var/lib/scrapyd/
 EXPOSE 6800
 
