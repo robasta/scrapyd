@@ -36,13 +36,13 @@ RUN set -xe \
     && curl -sSL https://bootstrap.pypa.io/get-pip.py | python3 \
     && pip install bsddb3 \
                    pika \
+                   sqlitedict \
     && pip install git+https://github.com/scrapy/scrapy.git \
                    git+https://github.com/scrapy/scrapyd.git \
                    git+https://github.com/scrapy/scrapyd-client.git \
                    git+https://github.com/scrapinghub/scrapy-splash.git \
                    git+https://github.com/scrapinghub/scrapyrt.git \
                    git+https://github.com/python-pillow/Pillow.git \
-                   git+https://github.com/scrapy-plugins/scrapy-deltafetch \
     && curl -sSL https://github.com/scrapy/scrapy/raw/master/extras/scrapy_bash_completion -o /etc/bash_completion.d/scrapy_bash_completion \
     && echo 'source /etc/bash_completion.d/scrapy_bash_completion' >> /root/.bashrc \
     && apt-get purge -y --auto-remove autoconf \
@@ -62,7 +62,6 @@ RUN set -xe \
     && rm -rf /var/lib/apt/lists/*
 
 COPY ./scrapyd.conf /etc/scrapyd/
-COPY ./scrapy.cfg /etc/scrapyd/
 VOLUME /etc/scrapyd/ /var/lib/scrapyd/
 EXPOSE 6800
 
