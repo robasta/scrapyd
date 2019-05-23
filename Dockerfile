@@ -37,6 +37,7 @@ RUN set -xe \
     && pip install bsddb3 \
                    pika \
                    sqlitedict \
+                   python-dateutil \
     && pip install git+https://github.com/scrapy/scrapy.git \
                    git+https://github.com/scrapy/scrapyd.git \
                    git+https://github.com/scrapy/scrapyd-client.git \
