@@ -2,8 +2,7 @@
 # Dockerfile for scrapyd:py3
 #
 
-FROM debian:stretch
-MAINTAINER kev <noreply@easypi.pro>
+FROM debian:buster
 
 RUN set -xe \
     && apt-get update \
@@ -38,6 +37,7 @@ RUN set -xe \
                    pika \
                    sqlitedict \
                    python-dateutil \
+                   botocore \
     && pip install git+https://github.com/scrapy/scrapy.git \
                    git+https://github.com/scrapy/scrapyd.git \
                    git+https://github.com/scrapy/scrapyd-client.git \
